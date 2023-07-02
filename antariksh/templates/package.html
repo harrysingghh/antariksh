@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title%}Antariksh{% endblock %}
+
+{% block active_package%} active {% endblock %}
+
+{% block main%}
+<section id="main_body">
+	<div class="parent_block">
+<div class="container p-3">
+    <h1 class="text-white">Packages</h1>
+</div>
+</div>
+</section>
+
+
+
+<section id="package">
+
+<div class="container p-3">
+
+	<h4 class="text-center text-primary p-3">Unlimited Packages - Always on*</h4>
+	 <div class="table-responsive">
+	<table class="table table-bordered  table-hover shadow-lg">
+
+		<tbody>
+			<tr>
+				<th class="table-primary">Months</th>
+				<th class="table-primary">100 MPBS</th>
+				<th class="table-primary">150 MPBS</th>
+				<th class="table-primary">200 MPBS</th>
+				<th class="table-primary">300 MPBS</th>
+				<th class="table-primary">400 MPBS</th>
+				<th class="table-primary">500 MPBS</th>
+			</tr>
+			<tr>
+				<th class="table-primary">1 Month</th>
+				<td class="">500 &#8377;  </td>
+				<td class="">600 &#8377;  </td>
+				<td class="">700 &#8377;  </td>
+				<td class="">800 &#8377;  </td>
+				<td class="">900 &#8377;  </td>
+				<td class="">1000 &#8377;  </td>
+			</tr>
+			<tr>
+				<th class="table-primary">3 Months</th>
+				<td >1200 &#8377;  </td>
+				<td >1500 &#8377;  </td>
+				<td >1800 &#8377;  </td>
+				<td >2100 &#8377;  </td>
+				<td >2400 &#8377;  </td>
+				<td >2700 &#8377;  </td>
+			</tr>
+			<tr>
+				<th class="table-primary">12 Months</th>
+				<td >4800 &#8377; </td>
+				<td >6000 &#8377; </td>
+				<td >7200 &#8377; </td>
+				<td >8400 &#8377; </td>
+				<td >9600 &#8377; </td>
+				<td >10800 &#8377; </td>
+			</tr>
+			<tr>
+				<th class="table-primary">12 Months</th>
+				<td class="table-info">1000 &#8377; </td>
+				<td class="table-info">1000 &#8377; </td>
+				<td class="table-info">1000 &#8377; </td>
+				<td class="table-info">1000 &#8377; </td>
+				<td class="table-info">1000 &#8377; </td>
+				<td class="table-info">1000 &#8377; </td>
+			</tr>
+
+		</tbody>
+	</table>
+	</div>
+	<div class="d-grid gap-2 col-2 mx-auto pt-4 ">
+		<button type="button" class="btn btn-primary btn-lg" id="book_now" data-bs-toggle="modal" data-bs-target="#lead_popup">Book Now</button>
+	</div>
+
+	<div class="p-5">
+		<h3>Pleae Note</h3>
+		<ul>
+			<li>Documents to be submitted along with CRF</li>
+			<ul>
+				<li>Photo ID Proof</li>
+				<li>Address Proof </li>
+				<li>Passport size photo </li>
+			</ul>
+			<li>CPE(Modem Rental) charges applicable on select plans. </li>
+			<li>Download and upload speed indicated is only up to our ISP node. </li>
+			<li>Speed and Data usage limit subject to Antariksh Broadband's Fair Usage Policy </li>
+			<li>Please contact your nearest Antariksh Broadband offices for area specific plans/schemes & SME / Corporate Services. </li>
+			<li>Installation charges and taxes extra as applicable. </li>
+			<li>Some plans/schemes are available in select areas only. </li>
+			<li>* "Always on" means payment has to be cleared or else it me reduced to 64kbps only. </li>
+
+		</ul>
+	</div>
+
+</div>
+    </section>
+{% endblock %}
+
+{% block body%}
+
+<!-- Modal -->
+<div class="modal fade" id="lead_popup" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Book Now</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+				<div class="p-2">
+					<form>
+						<div class="row mb-3">
+							<div class=" ">
+								<div class="input-group">
+									<input type="text" class="form-control" id="username" placeholder="Username">
+								</div>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="  ">
+								<div class="input-group">
+									<input type="email" class="form-control" id="email" placeholder="Email">
+								</div>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="  ">
+								<div class="input-group">
+									<input type="text" class="form-control" id="mobile" placeholder="Mobile No">
+								</div>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="  ">
+								<div class="input-group">
+									<input type="text" class="form-control" id="address" placeholder="Address">
+								</div>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+							<div class="  ">
+								<div class="input-group">
+									<textarea class="form-control" id="coments" rows="2"  placeholder="Coments"></textarea>
+								</div>
+							</div>
+						</div>
+
+						<div class="d-grid gap-2 col-2 ">
+							<button class="btn btn-primary" type="button" id="lead_submit">Submit</button>
+						</div>
+						<br>
+					</form>
+				</div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+
+
+$('#lead_submit').on('click',function(){
+	name = $('#username').val()
+	email = $('#email').val()
+	mobile = $('#mobile').val()
+	address = $('#address').val()
+	coments = $('#coments').val()
+	var request = $.ajax({
+		url: "/leads/",
+		method: "POST",
+		headers: {'X-CSRFToken': '{{ csrf_token }}'},
+		data: { 'name' : name, 'email':email, 'mobile':mobile, 'address':address, 'coments':coments},
+		dataType: "html"
+	});
+	request.done(function( msg ) {
+		// $( "#log" ).html( msg );
+		var myModal = bootstrap.Modal.getOrCreateInstance(document.getElementById('lead_popup'));
+		myModal.hide();
+		// $('#lead_popup').hide()
+		alert("Data saved succesfully")
+	});
+
+	request.fail(function( jqXHR, textStatus ) {
+		alert( "Request failed: " + textStatus );
+	});
+
+})
+
+
+</script>
+
+{% endblock %}

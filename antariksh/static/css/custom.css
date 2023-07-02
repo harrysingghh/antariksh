@@ -1,0 +1,230 @@
+/* ******************** NAV CSS ************************ */
+
+#navbarSupportedContent .active{
+color: #fff;
+background-color: #c52d2f;
+}
+
+#navbarSupportedContent .nav-link:hover{
+	color: #fff;
+	background-color: #c52d2f;
+	transition: color 600ms, background-color 500ms;
+
+}
+
+
+
+/* ******************** Footer CSS ************************ */
+
+footer a:hover{
+		color: #c52d2f;
+		transition: color 300ms, background-color 300ms;
+}
+
+
+footer a {
+  color: #636c73;
+  text-decoration: auto;
+}
+
+
+/* ******************** carousel CSS ************************ */
+
+header .carousel-inner .item{
+  height: 100vh;
+}
+header .carousel-inner .item img{
+  width: 100%;
+}
+
+.carousel-caption{
+  padding-bottom: 150px;
+}
+.carousel-caption h2{
+  font-size: 50px;
+  text-transform: uppercase;
+}
+.carousel-control.right{
+  background-image: none;
+}
+.carousel-control.left{
+  background-image: none;
+}
+
+.carousel-caption{
+	text-align: left;
+	bottom: -6.75rem;
+	animation-name: cap_animation;
+	animation-duration: 	1s;
+	animation-delay: 0.7s;
+	color: #442b90;
+}
+
+@keyframes cap_animation {
+  0%   {bottom: -9rem;
+	}
+  100% {bottom: -6.75rem;
+	}
+}
+
+/* ******************** Custom CSS ************************ */
+
+.row{
+	--bs-gutter-x: 0.5rem;
+}
+#btn-back-to-top {
+	position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+	animation-name: call_animation;
+	animation-duration: 	1s;
+	animation-iteration-count: infinite;
+}
+#dash_form{
+	background-color: #17aea9;
+padding: 22px;
+text-align: center;
+color: #fff;
+}
+
+@keyframes call_animation {
+	0%   {bottom: 40px;}
+  50%   {bottom: 50px;}
+  100% {bottom: 40px;}
+}
+.parent_block{
+	margin-top: 3px;
+	min-width: 100%;
+	/* min-height: 450px; */
+	background-color: #0084c2;
+	border-top: solid 5px #F90;
+}
+
+
+#privacy_policy, #refund, #term_and_conditions, #about_us, #contact_details, #contact{
+	font-size: 0.9rem;
+	font-weight: 399;
+	background-color: #f2f2f2;
+}
+
+#book_now:hover{
+	animation-name: button_bg;
+	animation-duration: 	1s;
+	animation-iteration-count: infinite;
+	transition: 0.5s;
+}
+
+#contact_us_img{
+	height: 50%;
+	width: 50%;
+	padding:20px
+}
+@keyframes button_bg {
+  0%   {background-image: linear-gradient(to bottom right, #0d6efd, #acbde6);}
+  50% {background-image: linear-gradient(to bottom right, #acbde6, #0d6efd);}
+	100%   {background-image: linear-gradient(to bottom right, #0d6efd, #acbde6);}
+}
+
+
+
+#contact_form{
+	border-radius: 35px;
+		border: 1px solid #ccc !important;
+		padding: 33px;
+}
+
+.col-form-label{
+	font-size: initial;
+	font-weight: bold;
+}
+
+
+.button-float {
+    display: inline-block;
+    text-align: center;
+    vertical-align: middle;
+    padding: 6px 13px;
+    border: 1px solid #700a87;
+    border-radius: 21px;
+    background: #d313fe;
+    background: -webkit-gradient(linear, left top, left bottom, from(#d313fe), to(#700a87));
+    background: -moz-linear-gradient(top, #d313fe, #700a87);
+    background: linear-gradient(to bottom, #d313fe, #700a87);
+    -webkit-box-shadow: #fd17ff 0px 0px 40px 0px;
+    -moz-box-shadow: #fd17ff 0px 0px 40px 0px;
+    box-shadow: #fd17ff 0px 0px 40px 0px;
+    text-shadow: #420650 1px 1px 1px;
+    font: normal normal bold 24px arial;
+    color: #ffffff;
+    text-decoration: none;
+}
+.button-float:hover,
+.button-float:focus {
+    border: 1px solid ##840c9f;
+    background: #fd17ff;
+    background: -webkit-gradient(linear, left top, left bottom, from(#fd17ff), to(#860ca2));
+    background: -moz-linear-gradient(top, #fd17ff, #860ca2);
+    background: linear-gradient(to bottom, #fd17ff, #860ca2);
+    color: #ffffff;
+    text-decoration: none;
+}
+.button-float:active {
+    background: #700a87;
+    background: -webkit-gradient(linear, left top, left bottom, from(#700a87), to(#700a87));
+    background: -moz-linear-gradient(top, #700a87, #700a87);
+    background: linear-gradient(to bottom, #700a87, #700a87);
+}
+.button-float:before{
+    content:  "\0000a0";
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    line-height: 24px;
+    margin: 0 4px -6px -4px;
+    position: relative;
+    top: 0px;
+    left: 0px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAA7EAAAOxAGVKw4bAAABVElEQVRIieXUvytGURzH8VcGg2SQQZJkkNlkMphM/gCZ5A8wGQzKbJAkyR8gg1EGg7/BIEkGPZkkg2R40jXcc+v2OOc6T4+JT526p/v9ft7nx/d8+asawjrOsPnb5nN4QlEbi5G4K9xjA4O55hN47jAvcBGJXcIlPgNoNgdwGDEv0MZMLa6/tup5POI1B9JKAArs1+J28YEjDGM8QO79cFyfDYDXWvJUAH7gOkDmQ/5GE+C9AdDGaEf8QoAch/ll2EVStw2A/UROtZMBZbWdNQFOE+YPyrcR0wS20NdkXGktAdjOSc7RCN4igGdMRuJHdfHIKh1EAAVuapBB7Ckv/iV8T+cCxkJSDPKiPO+7yL82zsXbyjetJAC5I6tB7vQAaCzVSn09QNZzAJWWpe8kNp6k30xSY8rqipVwZznPdWte1whWcaJsK+/KBtcKCxjvxfyf6guUCbqNVr8GbQAAAABJRU5ErkJggg==") no-repeat left center transparent;
+    background-size: 100% 100%;
+}
+
+
+/* ******************** Mobile CSS ************************ */
+
+
+@media only screen and (max-device-width: 480px) {
+	.logo_res{
+		width: 300px;
+	}
+	footer{
+		margin-bottom: -14px;
+	}
+	#contact_details{
+		text-align: center !important;
+	}
+	#contact_us_img{
+		border-radius: .25rem !important;
+		display: block !important;
+		margin-right: auto !important;
+		margin-left: auto !important;
+	}
+}
+
+/* ******************** desktop CSS ************************ */
+
+
+
+@media only screen and (min-width: 768px) {
+	footer {
+		position: fixed;
+		min-height:40px;
+		bottom: 0;
+		width: 100%;
+	}
+
+
+}

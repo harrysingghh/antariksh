@@ -1,0 +1,133 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block title%}Antariksh{% endblock %}
+
+{% block active_contact%} active {% endblock %}
+
+{% block head%}
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% block main%}
+<section id="main_body">
+	<div class="parent_block">
+<div class="container p-1">
+    <h1 class="text-white">Feedback</h1>
+</div>
+</div>
+</section>
+
+<section id="contact">
+	<div class="row">
+
+		<div class="col-md-6">
+			<div class="p-3">
+				<div id="contact_form" class="shadow">
+				<legend>Write to Us</legend>
+				<h6>Please write to us and we will respond to your query at the earliest!</h6>
+
+					<form id="feedback_form">
+					  <div class="row mb-3">
+					    <label for="username" class="col-sm-2 col-form-label">Username</label>
+					    <div class="col-sm-10 ">
+								<div class="input-group">
+									<div class="input-group-text"><i class="fa fa-user"></i></div>
+									<input type="text" class="form-control" id="username" name ="username" placeholder="Username" required />
+								</div>
+					    </div>
+					  </div>
+
+						<div class="row mb-3">
+					    <label for="email" class="col-sm-2 col-form-label">Email</label>
+					    <div class="col-sm-10 ">
+								<div class="input-group">
+									<div class="input-group-text">@</div>
+									<input type="email" class="form-control" id="email" name="email" placeholder="Email">
+								</div>
+					    </div>
+					  </div>
+
+						<div class="row mb-3">
+							<label for="mobile" class="col-sm-2 col-form-label">Mobile</label>
+							<div class="col-sm-10 ">
+								<div class="input-group">
+									<div class="input-group-text"><i class="fa fa-mobile "></i></div>
+									<input type="text" class="form-control" id="mobile" name="mobile" placeholder="Mobile No" required >
+								</div>
+							</div>
+						</div>
+
+						<div class="row mb-3">
+					    <label for="coments" class="col-sm-2 col-form-label">Coments</label>
+					    <div class="col-sm-10 ">
+								<div class="input-group">
+									<div class="input-group-text"><i class="fa fa-comment"></i></div>
+									<input type="text" class="form-control" id="coments" name="coments" placeholder="Coments">
+								</div>
+					    </div>
+					  </div>
+
+						<div class="d-grid gap-2 col-2 mx-auto">
+						  <button class="btn btn-primary" id="feedback_submit" type="submit">Button</button>
+						</div>
+					</form>
+				</div>
+
+
+
+			</div>
+
+
+		</div>
+
+		<div class="col-md-6">
+			<div class="p-1">
+				<img class="img-fluid img-responsive " src={% static 'img/contact-us.jpg' %} id="contact_us_img">
+				<br>
+				<p class="ps-3" id="contact_details"><strong>Antariksh Broadband</strong><br>
+	          Address: H-114 Raj Nagar Part - II,<br>
+				    Street No.-08, Palam Colony,<br>
+	          New Delhi – 110077<br>
+	          Contact No. 9212593323<br>
+	          Email. <a class="readmore" href="mailto:support@antariksh.co.in">support@antariksh.co.in</a> <br>
+	          Visit us at. <a href="http://www.antariksh.co.in">www.antariksh.co.in</a></p>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+<script type="text/javascript">
+
+
+$('#feedback_submit').on('click',function(e){
+
+	name = $('#username').val()
+	email = $('#email').val()
+	mobile = $('#mobile').val()
+	coments = $('#coments').val()
+
+	if(name && (email || mobile) ){
+		e.preventDefault();
+		var request = $.ajax({
+			url: "/form_submission/",
+			method: "POST",
+			headers: {'X-CSRFToken': '{{ csrf_token }}'},
+			data: { 'name' : name, 'email':email, 'mobile':mobile, 'coments':coments},
+			dataType: "json"
+		});
+		request.done(function( msg ) {
+			alert("Data saved succesfully")
+		});
+
+		request.fail(function( msg ) {
+			alert( "Request failed: " + msg.error );
+		});
+
+	}
+
+})
+</script>
+{% endblock %}
