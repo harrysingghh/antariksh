@@ -162,18 +162,11 @@ def inline_list(track_search,page=None):
 
 @csrf_exempt
 def mgb_cycle(request):
-    # requests.get('http://127.0.0.1:8000/rest_api/send_data/?client_id=d88933c119634dc693b2c809c3e877cf&client_secret=4ca2450a7a504c4e85d6d9c9bd36150e&url=https://api.telegram.org/bot5971061598:AAG1z4WkdXjvSeq2GFxzqZqDuzbC72Az4Cc/&shutll=7qogMSkC8dFiElicNKYfGCufC5FAqR3PcYvkEkL7toQ=&chat_id=-1001704497344')
-    # requests.get('https://antariksh.co.in/rest_api/send_data/?client_id=d88933c119634dc693b2c809c3e877cf&client_secret=4ca2450a7a504c4e85d6d9c9bd36150e&url=https://api.telegram.org/bot5971061598:AAG1z4WkdXjvSeq2GFxzqZqDuzbC72Az4Cc/&shutll=7qogMSkC8dFiElicNKYfGCufC5FAqR3PcYvkEkL7toQ=&chat_id=-1001704497344')
     if not get_url():
-        time.sleep(2)
-        return HttpResponseRedirect(request.path_info)
         return JsonResponse({'status': 200, 'msg':'Variable not set yet'})
 
     if request.body:
         data = json.loads(request.body)
-        # print(json.dumps(data, indent = 1))
-
-        log = log_file()
 
         if data.get('message') and data['message'].get('entities') and data['message'].get('text') != '/start':
             pass
@@ -239,8 +232,7 @@ def data_oper(request):
             setattr(globalvariable, 'shutll', data.get('shutll').encode('ascii') )
         if 'chat_id' in data:
             setattr(globalvariable, 'chat_id', int(data.get('chat_id')) )
-        temp = f"get_url() ::: {get_url()} globalvariable.cahat_id ::: {globalvariable.nbjdkgghjkf}"
 
-        return JsonResponse({'status': 200, 'msg':'operation completed succesfully'+temp})
+        return JsonResponse({'status': 200, 'msg':'operation completed succesfully'})
     else:
         return JsonResponse({'status': 403, 'msg':'bad request'})

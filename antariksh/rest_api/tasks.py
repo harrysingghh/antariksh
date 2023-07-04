@@ -6,6 +6,8 @@ import os
 from .config import globalvariable
 import datetime
 import json
+import yt_dlp as youtube_dl
+import youtube_dl
 
 
 
@@ -38,6 +40,7 @@ def log_message(data,chat_id,status=None,url=None,song=None):
     log_data= {}
 
     current_date = datetime.datetime.today().strftime('%d_%m_%Y')
+    current_eod = datetime.datetime.today().strftime('20_20_23_%d_%m_%Y')
     current = datetime.datetime.today().strftime('%S_%M_%H_%d_%m_%Y')
     file = '/tmp/'+'file_processing'+current_date+'.log'
     log_data['text'] = ''
@@ -56,12 +59,21 @@ def log_message(data,chat_id,status=None,url=None,song=None):
     if status:
         log_data['text'] += f"Status : {status}\n"
 
-    if  os.path.exists(file):
-        with open(file,'a') as logging :
-            logging.write(f"{current},{uData.get('first_name','')},{uData.get('user_name','')},{uData.get('id','')},{text or ''},{status or ''},{song or ''}\n")
+
     log_data['chat_id'] =  chat_id
 
     tele_api('sendMessage', **log_data,url=url)
+    if  os.path.exists(file):
+
+        with open(file,'a') as logging :
+            logging.write(f"{current},{uData.get('first_name','')},{uData.get('user_name','')},{uData.get('id','')},{text or ''},{status or ''},{song or ''}\n")
+    else:
+        os.mknod(file)
+        with open(file,'a') as logging :
+            logging.write("'timestamp','username','user_id','uniq_id','text','status',song\n")
+            logging.write(f"{current},{uData.get('first_name','')},{uData.get('user_name','')},{uData.get('id','')},{text or ''},{status or ''},{song or ''}\n")
+        eta = datetime.datetime.strptime(current_eod, '%S_%M_%H_%d_%m_%Y')
+        sendCSV.apply_async(('sendDocument',globalvariable.hfuosk4g+':'+ globalvariable.hdygr9586,globalvariable.nbjdkgghjkf,file,),eta = eta)
 
 def tele_api(type,url=None,**kwags):
     if url:
@@ -86,7 +98,6 @@ def sendCSV(type,url,chat_id,file):
         }
         resp = requests.post(url,data=payload,files=files)
         os.remove(file)
-
 
 
 def yt_download(video_url,filename):
@@ -135,7 +146,6 @@ def send_song(data,chat_id,global_chat,msg_id,song_title,song_img,song_dura,url=
         song = song_title.split('-')
         log_message.delay(data,global_chat,f"Error : {e}",song=song[0],url=url)
 
-
     if os.path.exists('/tmp/'+song_title+'.mp3'):
         audio = open('/tmp/'+song_title+'.mp3','rb')
 
@@ -167,4 +177,5 @@ def send_song(data,chat_id,global_chat,msg_id,song_title,song_img,song_dura,url=
 
     else:
         log_message.delay(data,global_chat,f"Error : Audio not found\nSong : {song[0]}",url=url)
-        tele_api('sendMessage',chat_id=chat_id,text="Can't send you file, some technical issue",url=url)
+        tele_api('sendMessage',chat_id=chat_id,text="There is some technical issue, Please try after some later",url=url)
+
