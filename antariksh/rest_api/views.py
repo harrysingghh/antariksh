@@ -206,6 +206,7 @@ def mgb_cycle(request):
 
 
             elif data['callback_query']['data'].startswith('sng'):
+                print("hello")
                 song_raw = data['callback_query']['message']['reply_markup']['inline_keyboard'][int(callback_raw[1])][0]
                 song_title = song_raw['text']
                 song_img = callback_raw[2]
